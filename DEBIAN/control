@@ -1,5 +1,5 @@
 Package: chonos-ros2-jazzy-armel
-Version: 1.0.0
+Version: 26.8.25
 Priority: optional
 Architecture: armhf
 Essential: no
