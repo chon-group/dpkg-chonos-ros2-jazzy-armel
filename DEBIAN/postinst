@@ -1,0 +1,45 @@
+#!/bin/sh
+set -e
+
+ROS_LINE='[ -f /opt/ros/jazzy/setup.bash ] && source /opt/ros/jazzy/setup.bash'
+OS_LINE='export ROS_OS_OVERRIDE=debian:trixie:trixie'
+
+add_ros_config() {
+    BASHRC="$1"
+
+    touch "$BASHRC"
+
+    grep -qxF "$ROS_LINE" "$BASHRC" ||
+        printf '\n%s\n' "$ROS_LINE" >> "$BASHRC"
+
+    grep -qxF "$OS_LINE" "$BASHRC" ||
+        printf '%s\n' "$OS_LINE" >> "$BASHRC"
+}
+
+# Configuração para futuros usuários
+mkdir -p /etc/skel
+add_ros_config /etc/skel/.bashrc
+
+# Configuração do root
+add_ros_config /root/.bashrc
+
+# Configuração dos usuários existentes com shell interativo
+while IFS=: read -r USERNAME _ UID _ _ HOME SHELL; do
+
+    case "$SHELL" in
+        */nologin|*/false|"")
+            continue
+            ;;
+    esac
+
+    [ -d "$HOME" ] || continue
+    [ "$HOME" = "/root" ] && continue
+
+    BASHRC="$HOME/.bashrc"
+    add_ros_config "$BASHRC"
+
+    chown "$UID":"$(id -g "$USERNAME")" "$BASHRC"
+
+done < /etc/passwd
+
+exit 0

@@ -1,0 +1,12 @@
+source;share/domain_coordinator/hook/cmake_prefix_path.dsv
+source;share/domain_coordinator/hook/cmake_prefix_path.sh
+source;share/domain_coordinator/hook/ld_library_path_lib.dsv
+source;share/domain_coordinator/hook/ld_library_path_lib.sh
+source;share/domain_coordinator/hook/path.dsv
+source;share/domain_coordinator/hook/path.sh
+source;share/domain_coordinator/hook/pythonpath.dsv
+source;share/domain_coordinator/hook/pythonpath.sh
+source;share/domain_coordinator/hook/pythonscriptspath.dsv
+source;share/domain_coordinator/hook/pythonscriptspath.sh
+source;share/domain_coordinator/hook/ament_prefix_path.dsv
+source;share/domain_coordinator/hook/ament_prefix_path.sh

@@ -1,0 +1,14 @@
+source;share/service_msgs/hook/cmake_prefix_path.dsv
+source;share/service_msgs/hook/cmake_prefix_path.sh
+source;share/service_msgs/hook/ld_library_path_lib.dsv
+source;share/service_msgs/hook/ld_library_path_lib.sh
+source;share/service_msgs/hook/path.dsv
+source;share/service_msgs/hook/path.sh
+source;share/service_msgs/hook/pythonpath.dsv
+source;share/service_msgs/hook/pythonpath.sh
+source;share/service_msgs/hook/pythonscriptspath.dsv
+source;share/service_msgs/hook/pythonscriptspath.sh
+source;share/service_msgs/local_setup.bash
+source;share/service_msgs/local_setup.dsv
+source;share/service_msgs/local_setup.sh
+source;share/service_msgs/local_setup.zsh
